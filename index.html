@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ScholarShipSaathi</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F4F6F5;--card:#fff;--ink:#17272C;--mute:#5B6B70;--line:#D9E0DC;--teal:#0E4A57;--on:#fff;--teal2:#E3EEF0;--sun:#E5A034;--ok:#2B7A57;--okbg:#E2F1E9;--bad:#B03445;--badbg:#F7E3E6;--warn:#8A5A00;--warnbg:#FBEFD5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A1D;--card:#16262A;--ink:#E7EFEC;--mute:#93A5A9;--line:#2A3E43;--teal:#7CC3D1;--on:#0F1A1D;--teal2:#1B3A42;--ok:#6CD0A0;--okbg:#173A2B;--bad:#F08A98;--badbg:#3E1D24;--warn:#F0C466;--warnbg:#3A2E10}}
+:root[data-theme="dark"]{--bg:#0F1A1D;--card:#16262A;--ink:#E7EFEC;--mute:#93A5A9;--line:#2A3E43;--teal:#7CC3D1;--on:#0F1A1D;--teal2:#1B3A42;--ok:#6CD0A0;--okbg:#173A2B;--bad:#F08A98;--badbg:#3E1D24;--warn:#F0C466;--warnbg:#3A2E10}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Public Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Bitter,Georgia,serif;margin:0 0 .4em;line-height:1.2}
+.stripe{height:5px;background:linear-gradient(90deg,#E5A034 33%,#F4F6F5 33% 66%,#2B7A57 66%)}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.bar1{max-width:1080px;margin:0 auto;padding:14px 20px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{width:40px;height:40px;border-radius:10px;background:var(--teal);color:var(--on);display:grid;place-items:center;font:700 20px Bitter,serif}
+.brand{font:700 22px Bitter,serif;color:var(--teal)}
+.sub{font-size:12.5px;color:var(--mute)}
+nav{max-width:1080px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto}
+nav button{background:none;border:0;color:var(--mute);padding:12px 14px;font:600 14px "Public Sans",sans-serif;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+nav button[aria-selected=true]{color:var(--teal);border-color:var(--sun)}
+main{max-width:1080px;margin:0 auto;padding:22px 20px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px;margin-bottom:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+label{display:block;font-weight:600;font-size:13px;margin-bottom:4px}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+input[type=checkbox]{width:auto;margin-right:8px}
+.chk{display:flex;align-items:center;font-weight:400;margin:6px 0}
+button.b{background:var(--teal);color:var(--on);border:0;border-radius:6px;padding:10px 18px;font:600 14px "Public Sans",sans-serif;cursor:pointer}
+button.b.alt{background:var(--teal2);color:var(--teal);padding:6px 12px;font-size:13px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap}
+.ok{background:var(--okbg);color:var(--ok)}.bad{background:var(--badbg);color:var(--bad)}.warn{background:var(--warnbg);color:var(--warn)}.neu{background:var(--teal2);color:var(--teal)}
+ul.r{list-style:none;padding:0;margin:0}
+ul.r li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}
+ul.r li:last-child{border:0}
+.mute{color:var(--mute);font-size:13px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:680px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--mute)}
+.bars{display:flex;align-items:center;gap:10px;margin:8px 0}
+.bars span{width:130px;font-size:13px}
+.bars i{display:block;height:16px;background:var(--teal);border-radius:3px;min-width:3px}
+.stat{font:700 30px Bitter,serif;color:var(--teal)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hero{background:var(--teal);color:var(--on);border-radius:10px;padding:34px 28px;margin-bottom:16px}
+.hero h1{font-size:30px;max-width:22ch}
+.hero p{max-width:60ch;margin:0 0 18px;opacity:.9}
+.hero button{background:var(--sun);color:#17272C}
+.steps{display:flex;gap:0;margin:14px 0;flex-wrap:wrap}
+.steps div{flex:1;min-width:110px;padding:8px 0;border-top:4px solid var(--line);font-size:13px;color:var(--mute)}
+.steps div.on{border-color:var(--ok);color:var(--ink);font-weight:600}
+.steps div.cur{border-color:var(--sun);color:var(--ink);font-weight:600}
+.toast{margin-top:10px;font-weight:600}
+footer{text-align:center;color:var(--mute);font-size:12.5px;padding:0 20px 24px}
+@media(prefers-reduced-motion:no-preference){.pop{animation:pop .25s}@keyframes pop{from{opacity:.4;transform:translateY(4px)}}}
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<header>
+ <div class="bar1"><div class="logo" aria-hidden="true">S</div><div><div class="brand">ScholarShipSaathi</div><div class="sub">Scholarship and fellowship management for Scheduled Tribe students · Ministry of Tribal Affairs (prototype)</div></div></div>
+ <nav role="tablist" id="nav"></nav>
+</header>
+<main id="app"></main>
+<footer>Prototype for demonstration. No real data is collected or stored.</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ALLDOCS=["Caste certificate","Income certificate","Marksheet","Admission letter","Passport","Bank passbook"];
+const schemes={
+ NFST:{name:"National Fellowship for Scheduled Tribes",short:"NFST",blurb:"Fellowship for ST students pursuing M.Phil or Ph.D. in India.",levels:["Ph.D.","M.Phil."],incomeMax:600000,ageMax:35,pctMin:55,rankMax:0,docs:["Caste certificate","Income certificate","Marksheet","Admission letter"],wPct:70},
+ NOS:{name:"National Overseas Scholarship",short:"NOS",blurb:"Scholarship for ST students pursuing a Master's or Ph.D. abroad.",levels:["Master's","Ph.D."],incomeMax:600000,ageMax:35,pctMin:60,rankMax:300,docs:["Caste certificate","Income certificate","Marksheet","Admission letter","Passport"],wPct:60}};
+const S={tab:"home",res:null,done:null,trackId:"",trackMsg:"",cfg:"NFST",cfgMsg:"",log:[],
+ apps:[
+ {id:"NFST-1001",scheme:"NFST",name:"Sunita Oraon",state:"Jharkhand",gender:"Female",score:82.4,status:"Eligible",why:[]},
+ {id:"NFST-1002",scheme:"NFST",name:"Rakesh Meena",state:"Rajasthan",gender:"Male",score:76.1,status:"Eligible",why:[]},
+ {id:"NOS-2001",scheme:"NOS",name:"Lalrin Hmar",state:"Mizoram",gender:"Male",score:79.9,status:"Deficient",why:["Income certificate: scan is too blurry to read"]},
+ {id:"NFST-1003",scheme:"NFST",name:"Ajay Gond",state:"Madhya Pradesh",gender:"Male",score:0,status:"Ineligible",why:["Family income is above the limit"]},
+ {id:"NOS-2002",scheme:"NOS",name:"Pema Bhutia",state:"Sikkim",gender:"Female",score:88,status:"Selected",why:[]},
+ {id:"NFST-1004",scheme:"NFST",name:"Kavita Munda",state:"Odisha",gender:"Female",score:71.5,status:"Eligible",why:[]}]};
+let seq=1005;
+const STATES=["Andhra Pradesh","Arunachal Pradesh","Assam","Chhattisgarh","Gujarat","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Rajasthan","Sikkim","Telangana","Tripura","West Bengal","Other"];
+const inr=n=>"₹"+Number(n).toLocaleString("en-IN");
+const tabs=[["home","Home"],["apply","Apply"],["track","Track application"],["desk","Officer desk"],["dash","Dashboard"],["set","Scheme settings"]];
+
+function nav(){$("#nav").innerHTML=tabs.map(([k,l])=>`<button role="tab" aria-selected="${S.tab===k}" data-k="${k}">${l}</button>`).join("");
+ $("#nav").querySelectorAll("button").forEach(b=>b.onclick=()=>go(b.dataset.k))}
+function go(k){S.tab=k;render();window.scrollTo(0,0)}
+function ageOf(dob){const t=new Date(),b=new Date(dob);let a=t.getFullYear()-b.getFullYear();if(t<new Date(t.getFullYear(),b.getMonth(),b.getDate()))a--;return a}
+function rulesFor(s,d){const r=[
+ {t:"Belongs to a Scheduled Tribe",p:d.st==="Yes"},
+ {t:`Enrolled in an eligible programme (${s.levels.join(" or ")})`,p:s.levels.includes(d.level)},
+ {t:`Family income is at most ${inr(s.incomeMax)} a year`,p:d.income<=s.incomeMax},
+ {t:`Age is at most ${s.ageMax} years`,p:d.age<=s.ageMax},
+ {t:`Previous degree marks are at least ${s.pctMin}%`,p:d.pct>=s.pctMin}];
+ if(s.rankMax)r.push({t:`University world rank is ${s.rankMax} or better`,p:d.rank>0&&d.rank<=s.rankMax});return r}
+
+/* ---------- Home ---------- */
+function vHome(){return `<div class="hero"><h1>One place to apply, track and receive your scholarship</h1>
+<p>Check your eligibility in minutes, upload documents once, and see exactly where your application stands and why.</p><button class="b" data-go="apply">Start an application</button></div>
+<div class="grid">${Object.values(schemes).map(s=>`<div class="card"><h3>${s.short}</h3><b>${esc(s.name)}</b><p class="mute">${esc(s.blurb)}</p><ul class="mute" style="padding-left:18px;margin:0"><li>Income up to ${inr(s.incomeMax)} a year</li><li>Age up to ${s.ageMax} years</li><li>Minimum ${s.pctMin}% marks</li></ul></div>`).join("")}
+<div class="card"><h3>How it works</h3><ul class="r"><li>1. Fill in your details and upload documents</li><li>2. The system checks eligibility and documents</li><li>3. Fix any deficiencies from your tracking page</li><li>4. An officer reviews and makes the final decision</li></ul></div></div>`}
+
+/* ---------- Apply ---------- */
+function vApply(){
+ if(S.done){const a=S.done;return `<div class="card pop"><h2>Application submitted</h2><p>Your application ID is <b style="font-size:20px">${a.id}</b>. Keep it safe, you will need it to track your status.</p>
+ <p class="mute">Status: ${a.status}${a.why.length?". Action needed: "+a.why.map(esc).join("; "):""}</p><div class="row"><button class="b" data-track="${a.id}">Track this application</button><button class="b alt" data-new="1">Start another</button></div></div>`}
+ const opts=Object.entries(schemes).map(([k,s])=>`<option value="${k}">${esc(s.name)}</option>`).join("");
+ return `<div class="card"><h2>Apply for a scheme</h2><p class="mute">All fields are required unless marked optional.</p>
+ <form id="fm" novalidate>
+ <h3 style="font-size:17px">Scheme</h3><div class="grid"><div><label for="scheme">Choose a scheme</label><select id="scheme" required><option value="">Select a scheme</option>${opts}</select></div></div>
+ <h3 style="font-size:17px;margin-top:20px">Personal details</h3><div class="grid">
+ <div><label for="name">Full name</label><input id="name" required autocomplete="name" placeholder="As on your certificate"></div>
+ <div><label for="dob">Date of birth</label><input id="dob" type="date" required></div>
+ <div><label for="gender">Gender</label><select id="gender" required><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+ <div><label for="state">State</label><select id="state" required><option value="">Select state</option>${STATES.map(x=>`<option>${x}</option>`).join("")}</select></div>
+ <div><label for="st">Do you belong to a Scheduled Tribe?</label><select id="st" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+ <div><label for="email">Email</label><input id="email" type="email" required placeholder="name@example.com" autocomplete="email"></div></div>
+ <h3 style="font-size:17px;margin-top:20px">Academic and family details</h3><div class="grid">
+ <div><label for="level">Programme</label><select id="level" required><option value="">Choose a scheme first</option></select></div>
+ <div><label for="inst">University or institution</label><input id="inst" required></div>
+ <div><label for="pct">Marks in previous degree (%)</label><input id="pct" type="number" min="0" max="100" step="0.1" required></div>
+ <div><label for="income">Family income per year (₹)</label><input id="income" type="number" min="0" required></div>
+ <div id="rankwrap" hidden><label for="rank">University world rank</label><input id="rank" type="number" min="1"></div></div>
+ <h3 style="font-size:17px;margin-top:20px">Documents</h3><p class="mute">Upload a clear PDF or image of each document.</p><div class="grid" id="docs"><p class="mute">Choose a scheme to see the documents required.</p></div>
+ <div class="row" style="margin-top:18px"><button class="b" type="submit">Check eligibility</button></div><div class="toast" id="err" style="color:var(--bad)"></div></form></div>
+ ${S.res?vRes():""}`}
+function vRes(){const r=S.res;return `<div class="card pop" id="res"><h2>${r.elig?(r.defs.length?"You are eligible, but documents need attention":"You are eligible"):"You are not eligible for this scheme"}</h2>
+ <p class="mute">${esc(r.s.name)}. Each result below is checked against the scheme's published criteria.</p>
+ <ul class="r">${r.rules.map(x=>`<li><span class="pill ${x.p?"ok":"bad"}">${x.p?"Met":"Not met"}</span><span>${esc(x.t)}</span></li>`).join("")}</ul>
+ <h3 style="font-size:17px;margin-top:14px">Document check</h3>
+ <ul class="r">${r.docs.map(x=>`<li><span class="pill ${x.ok?"ok":"warn"}">${x.ok?"Verified":"Needs action"}</span><span><b>${esc(x.n)}</b>${x.ok?"":`<br><span class="mute">${esc(x.issue)}</span>`}</span></li>`).join("")}</ul>
+ ${r.elig?`<p>Merit score: <b>${r.score}</b> <span class="mute">out of 100</span></p>`:""}
+ <div class="row"><button class="b" id="submit">Submit application</button></div></div>`}
+function bindApply(){
+ if(S.done){document.querySelectorAll("[data-track]").forEach(b=>b.onclick=()=>{S.trackId=b.dataset.track;S.trackMsg="";go("track")});
+  document.querySelectorAll("[data-new]").forEach(b=>b.onclick=()=>{S.done=null;S.res=null;render()});return}
+ const sc=$("#scheme");
+ sc.onchange=()=>{const s=schemes[sc.value];
+  $("#level").innerHTML=s?`<option value="">Select programme</option>`+s.levels.map(l=>`<option>${l}</option>`).join(""):`<option value="">Choose a scheme first</option>`;
+  $("#rankwrap").hidden=!(s&&s.rankMax);$("#rank").required=!!(s&&s.rankMax);
+  $("#docs").innerHTML=s?s.docs.map((n,i)=>`<div><label for="d${i}">${esc(n)}</label><input id="d${i}" type="file" accept=".pdf,image/*" data-doc="${esc(n)}"></div>`).join(""):""};
+ $("#fm").onsubmit=e=>{e.preventDefault();$("#err").textContent="";
+  const req=[...$("#fm").querySelectorAll("[required]")].find(x=>!x.value);
+  if(req){$("#err").textContent="Please fill in every required field.";req.focus();return}
+  const s=schemes[sc.value],d={name:$("#name").value.trim(),state:$("#state").value,gender:$("#gender").value,st:$("#st").value,level:$("#level").value,pct:+$("#pct").value,income:+$("#income").value,rank:+$("#rank").value,age:ageOf($("#dob").value)};
+  const docs=[...document.querySelectorAll("[data-doc]")].map(i=>{const f=i.files[0];
+   if(!f)return{n:i.dataset.doc,ok:false,issue:"Not uploaded"};
+   if(f.size<15000)return{n:i.dataset.doc,ok:false,issue:"Scan looks too small or blurry to read. Upload a clearer copy."};
+   return{n:i.dataset.doc,ok:true}});
+  const rules=rulesFor(s,d),elig=rules.every(x=>x.p);
+  const score=elig?+(d.pct*s.wPct/100+Math.max(0,1-d.income/s.incomeMax)*100*(100-s.wPct)/100).toFixed(1):0;
+  S.res={s,d,key:sc.value,rules,docs,elig,score,defs:docs.filter(x=>!x.ok)};render();
+  const r=$("#res");if(r)r.scrollIntoView({behavior:"smooth"})};
+ if(S.res&&$("#submit"))$("#submit").onclick=()=>{const r=S.res;
+  const status=!r.elig?"Ineligible":r.defs.length?"Deficient":"Eligible";
+  const why=!r.elig?r.rules.filter(x=>!x.p).map(x=>x.t):r.defs.map(x=>x.n+": "+x.issue);
+  const a={id:`${r.key}-${seq++}`,scheme:r.key,name:r.d.name,state:r.d.state,gender:r.d.gender,score:r.score,status,why};
+  S.apps.unshift(a);S.log.unshift(`${a.id} submitted and auto-screened: ${status}`);S.done=a;render();window.scrollTo(0,0)}}
+
+/* ---------- Track ---------- */
+function vTrack(){
+ const a=S.apps.find(x=>x.id===S.trackId.trim().toUpperCase());
+ let out="";
+ if(S.trackId&&!a)out=`<p class="toast" style="color:var(--bad)">No application found with that ID. Check the ID and try again.</p>`;
+ if(a){const st=a.status,idx={Deficient:1,Ineligible:2,Eligible:2,Selected:3,Rejected:3}[st];
+  const labels=["Submitted","Auto-screened","Officer review","Decision"];
+  out=`<div class="pop"><div class="row"><h3 style="margin:0">${esc(a.name)}</h3><span class="pill ${{Eligible:"ok",Selected:"ok",Deficient:"warn",Ineligible:"bad",Rejected:"bad"}[st]}">${st}</span></div>
+  <p class="mute">${a.id} · ${esc(schemes[a.scheme].name)}</p>
+  <div class="steps">${labels.map((l,i)=>`<div class="${i<idx?"on":i===idx?"cur":""}">${l}</div>`).join("")}</div>
+  ${a.why.length?`<h3 style="font-size:16px">${st==="Deficient"?"Action needed":"Reason"}</h3><ul class="r">${a.why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`:""}
+  ${st==="Deficient"?`<div style="margin-top:12px"><label for="re">Upload a corrected document</label><input id="re" type="file" accept=".pdf,image/*" style="max-width:340px"><div class="row" style="margin-top:10px"><button class="b" id="resub">Resubmit</button></div><div class="toast" id="tm">${S.trackMsg}</div></div>`:""}</div>`}
+ return `<div class="card"><h2>Track your application</h2><p class="mute">Enter the application ID you received after submitting. To see how a document issue works, try NOS-2001.</p>
+ <div class="row"><div style="flex:1;min-width:220px;max-width:340px"><label for="tid">Application ID</label><input id="tid" value="${esc(S.trackId)}" placeholder="e.g. NFST-1001"></div><button class="b" id="tgo" style="align-self:flex-end">Track</button></div></div>${out?`<div class="card">${out}</div>`:""}`}
+function bindTrack(){
+ $("#tgo").onclick=()=>{S.trackId=$("#tid").value;S.trackMsg="";render()};
+ $("#tid").onkeydown=e=>{if(e.key==="Enter")$("#tgo").click()};
+ if($("#resub"))$("#resub").onclick=()=>{const f=$("#re").files[0],a=S.apps.find(x=>x.id===S.trackId.trim().toUpperCase());
+  if(!f||f.size<15000){S.trackMsg=`<span style="color:var(--bad)">Choose a clear file first. Small or blurry scans are rejected.</span>`;render();return}
+  a.status="Eligible";a.why=[];S.trackMsg="";S.log.unshift(`${a.id} documents resubmitted and verified`);render()}}
+
+/* ---------- Officer desk ---------- */
+const cls={Eligible:"ok",Selected:"ok",Deficient:"warn",Ineligible:"bad",Rejected:"bad"};
+function vDesk(){const rows=[...S.apps].sort((a,b)=>b.score-a.score);
+ return `<div class="card"><h2>Officer desk</h2><p class="mute">Applications are screened and ranked automatically. Officers make the final decision, and every action is recorded.</p>
+ <div class="tw"><table><thead><tr><th>ID</th><th>Applicant</th><th>State</th><th>Score</th><th>Status</th><th>Flags</th><th>Decision</th></tr></thead><tbody>
+ ${rows.map(a=>`<tr><td>${a.id}</td><td>${esc(a.name)}</td><td>${esc(a.state)}</td><td>${a.score||"-"}</td><td><span class="pill ${cls[a.status]}">${a.status}</span></td><td class="mute">${a.why.map(esc).join("; ")||"None"}</td>
+ <td>${a.status==="Eligible"?`<button class="b alt" data-a="sel" data-id="${a.id}">Select</button> <button class="b alt" data-a="rej" data-id="${a.id}">Reject</button>`:a.status==="Deficient"?`<button class="b alt" data-a="ovr" data-id="${a.id}">Override</button>`:""}</td></tr>`).join("")}
+ </tbody></table></div></div>
+ <div class="card"><h3>Audit trail</h3>${S.log.length?`<ul class="r">${S.log.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>`:`<p class="mute">No actions yet. Select, reject or override an application to record it here.</p>`}</div>`}
+function bindDesk(){document.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{const a=S.apps.find(x=>x.id===b.dataset.id),t=b.dataset.a;
+ if(t==="ovr"){const w=prompt("Reason for overriding the document flag (recorded in the audit trail):");if(!w)return;a.status="Eligible";a.why=[];S.log.unshift(`Officer override on ${a.id}: ${w}`)}
+ else{a.status=t==="sel"?"Selected":"Rejected";S.log.unshift(`Officer marked ${a.id} as ${a.status.toLowerCase()}`)}render()})}
+
+/* ---------- Dashboard ---------- */
+function vDash(){const grp=f=>{const m={};S.apps.forEach(a=>{const k=f(a);m[k]=(m[k]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1])};
+ const bars=e=>{const mx=Math.max(...e.map(x=>x[1]));return e.map(([l,n])=>`<div class="bars"><span>${esc(l)}</span><i style="width:${n/mx*55}%"></i><b>${n}</b></div>`).join("")};
+ const n=S.apps.length,c=t=>S.apps.filter(a=>a.status===t).length,wm=S.apps.filter(a=>a.gender==="Female").length;
+ const rs={};S.apps.filter(a=>a.status==="Ineligible").forEach(a=>a.why.forEach(w=>rs[w]=(rs[w]||0)+1));
+ return `<div class="grid"><div class="card"><div class="stat">${n}</div>Applications</div><div class="card"><div class="stat">${c("Selected")}</div>Selected</div><div class="card"><div class="stat">${c("Deficient")}</div>Awaiting documents</div><div class="card"><div class="stat">${Math.round(wm/n*100)}%</div>Women applicants</div></div>
+ <div class="grid"><div class="card"><h3>By status</h3>${bars(grp(a=>a.status))}</div><div class="card"><h3>By scheme</h3>${bars(grp(a=>a.scheme))}</div><div class="card"><h3>By state</h3>${bars(grp(a=>a.state))}</div>
+ <div class="card"><h3>Reasons for ineligibility</h3>${Object.keys(rs).length?bars(Object.entries(rs)):`<p class="mute">No ineligible applications yet.</p>`}</div></div>`}
+
+/* ---------- Scheme settings ---------- */
+function vSet(){const s=schemes[S.cfg];
+ return `<div class="card"><h2>Scheme settings</h2><p class="mute">For Ministry administrators. Change a criterion and the Apply page follows it straight away.</p>
+ <div style="max-width:360px;margin-bottom:14px"><label for="sk">Scheme</label><select id="sk">${Object.entries(schemes).map(([k,x])=>`<option value="${k}" ${k===S.cfg?"selected":""}>${esc(x.name)}</option>`).join("")}</select></div>
+ <div class="grid">
+ <div><label for="c1">Maximum family income (₹ a year)</label><input id="c1" type="number" value="${s.incomeMax}"></div>
+ <div><label for="c2">Maximum age (years)</label><input id="c2" type="number" value="${s.ageMax}"></div>
+ <div><label for="c3">Minimum marks (%)</label><input id="c3" type="number" value="${s.pctMin}"></div>
+ <div><label for="c4">Best university rank allowed (0 for none)</label><input id="c4" type="number" value="${s.rankMax}"></div>
+ <div><label for="c5">Weight of marks in merit score (%)</label><input id="c5" type="number" min="0" max="100" value="${s.wPct}"></div></div>
+ <h3 style="font-size:17px;margin-top:18px">Documents required</h3>
+ ${ALLDOCS.map(d=>`<label class="chk"><input type="checkbox" data-d="${d}" ${s.docs.includes(d)?"checked":""}>${d}</label>`).join("")}
+ <div class="row" style="margin-top:12px"><button class="b" id="save">Save changes</button></div><div class="toast" id="cm">${S.cfgMsg}</div></div>`}
+function bindSet(){$("#sk").onchange=e=>{S.cfg=e.target.value;S.cfgMsg="";render()};
+ $("#save").onclick=()=>{const s=schemes[S.cfg];const v=id=>+$(id).value;
+  if([v("#c1"),v("#c2"),v("#c3"),v("#c5")].some(x=>!(x>=0))||v("#c5")>100){S.cfgMsg=`<span style="color:var(--bad)">Not saved. Enter valid numbers, and keep the marks weight between 0 and 100.</span>`;render();return}
+  const docs=[...document.querySelectorAll("[data-d]")].filter(x=>x.checked).map(x=>x.dataset.d);
+  if(!docs.length){S.cfgMsg=`<span style="color:var(--bad)">Not saved. Require at least one document.</span>`;render();return}
+  Object.assign(s,{incomeMax:v("#c1"),ageMax:v("#c2"),pctMin:v("#c3"),rankMax:v("#c4")||0,wPct:v("#c5"),docs});
+  S.cfgMsg=`<span style="color:var(--ok)">Changes saved for ${esc(s.short)}.</span>`;render()}}
+
+function render(){nav();const m={home:vHome,apply:vApply,track:vTrack,desk:vDesk,dash:vDash,set:vSet};
+ $("#app").innerHTML=m[S.tab]();
+ document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+ ({apply:bindApply,track:bindTrack,desk:bindDesk,set:bindSet})[S.tab]?.()}
+render();
+</script>
+</body>
+</html>
